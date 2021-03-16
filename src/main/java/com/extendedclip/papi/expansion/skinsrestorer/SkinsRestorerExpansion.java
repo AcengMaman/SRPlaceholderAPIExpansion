@@ -1,14 +1,17 @@
 package com.extendedclip.papi.expansion.skinsrestorer;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import net.skinsrestorer.api.SkinsRestorerBungeeAPI;
+
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
+// Skinsrestorer imports!
+import net.skinsrestorer.api.SkinsRestorerBungeeAPI;
+
 public class SkinsRestorerExpansion extends PlaceholderExpansion {
     private final String version = getClass().getPackage().getImplementationVersion();
-    private SkinsRestorerBungeeAPII skinsRestorerAPI;
+    private SkinsRestorerAPI skinsRestorerAPI;
 
     @Override
     public boolean canRegister() {
@@ -19,7 +22,7 @@ public class SkinsRestorerExpansion extends PlaceholderExpansion {
     public boolean register() {
         try {
             if (Bukkit.getPluginManager().getPlugin("SkinsRestorer") != null) {
-                skinsRestorerAPI = SkinsRestorerBungeeAPI.getApi();
+                skinsRestorerAPI = SkinsRestorerAPI.getApi();
                 return super.register();
             } else {
                 System.out.println("[SRPlaceholderAPIExpansion] " + version + "ERROR SkinsRestorer not installed!");

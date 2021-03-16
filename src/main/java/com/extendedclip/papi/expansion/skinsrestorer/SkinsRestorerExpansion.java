@@ -2,14 +2,13 @@ package com.extendedclip.papi.expansion.skinsrestorer;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.skinsrestorer.api.SkinsRestorerAPI;
-import net.skinsrestorer.api.PlayerWrapper;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 
 public class SkinsRestorerExpansion extends PlaceholderExpansion {
     private final String version = getClass().getPackage().getImplementationVersion();
-    private SkinsRestorerBungeeAPI skinsRestorerAPI;
+    private SkinsRestorerAPI skinsRestorerAPI;
 
     @Override
     public boolean canRegister() {
@@ -20,7 +19,7 @@ public class SkinsRestorerExpansion extends PlaceholderExpansion {
     public boolean register() {
         try {
             if (Bukkit.getPluginManager().getPlugin("SkinsRestorer") != null) {
-                skinsRestorerAPI = SkinsRestorerBungeeAPI.getApi();
+                skinsRestorerAPI = SkinsRestorerAPI.getApi();
                 return super.register();
             } else {
                 System.out.println("[SRPlaceholderAPIExpansion] " + version + "ERROR SkinsRestorer not installed!");
@@ -71,9 +70,8 @@ public class SkinsRestorerExpansion extends PlaceholderExpansion {
         if (p == null)
             return "Player cant be null";
 
-        if (params.equals("getSkinUrl")) {
-            return "Url_skin";
-//             String name = skinsRestorerAPI.getSkinName(p);
+        if (params.equals("getSkinName")) {
+            String name = skinsRestorerAPI.getSkinName(p);
 
             if (name != null) {
                 if (name.contains(" "))

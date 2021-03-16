@@ -1,13 +1,10 @@
 package com.extendedclip.papi.expansion.skinsrestorer;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-
+import net.skinsrestorer.api.SkinsRestorerAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
-
-// Skinsrestorer imports!
-import net.skinsrestorer.api.SkinsRestorerBungeeAPI;
 
 public class SkinsRestorerExpansion extends PlaceholderExpansion {
     private final String version = getClass().getPackage().getImplementationVersion();
